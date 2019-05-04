@@ -4,5 +4,119 @@
 #{menu id:"dashboard"/}
 
 <section class="ui segment">
-  #{mainpanel/}
+  <section class="center aligned ui segment">
+    <div class="ui four column padded relaxed stackable grid">
+      <div class="column">
+        <div class="ui centered icon">
+          <i class="fas fa-user-alt fa-4x"></i>
+        </div>
+        <p>
+          <font size="4">${member.name}</font>
+        </p>
+      </div>
+
+      <div class="column">
+        <div class="ui centered icon">
+          <i class=ui icon></i>
+          <i class="fas fa-tachometer-alt fa-4x"style="color:red"></i>
+        </div>
+        <p>
+          <font size="4">Ideal weight indicator</font>
+        </p>
+      </div>
+      <div class="column">
+        <div class="ui header">
+          <div class=" iu right aligned icon">
+            <i class="fas fa-heartbeat fa-2x"></i>
+          </div>
+          <div class="content"><br>
+            <font size="7">${bmi}</font>
+            <p>
+              <font size="3">BMI</font>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class=" iu centered icon">
+          <i class="fas fa-user-md fa-4x"></i>
+        </div>
+        <p>
+          <font size="4">${bmiCat}</font>
+        </p>
+      </div>
+    </div>
+  </section>
+  <section>
+    <form class="ui equal width form" action="/dashboard/addassessment" method="POST">
+      <div class="fields">
+        <div class="field">
+          <label>Weight</label>
+          <input placeholder="00.00 kg" type="text" name="weight">
+        </div>
+        <div class="field">
+          <label>Chest</label>
+          <input placeholder="00.00 cm" type="text" name="chest">
+        </div>
+        <div class="field">
+          <label>Thigh</label>
+          <input placeholder="00.00 cm" type="text" name="thigh">
+        </div>
+      </div>
+      <div class="fields">
+        <div class="field">
+          <label>Upper Arm</label>
+          <input placeholder="00.00 cm" type="text" name="upperArm">
+        </div>
+        <div class="field">
+          <label>Waist</label>
+          <input placeholder="00.00 cm" type="text" name="waist">
+        </div>
+        <div class="field">
+          <label>Hips</label>
+          <input placeholder="00.00 cm" type="text" name="hips">
+        </div>
+      </div>
+      <button class="ui blue submit button">Add Assessment</button>
+    </form>
+    <section class="ui raised segment">
+      <header class="ui header">
+        Assessments
+      </header>
+      <table class=" ui single line celled table">
+        <thead>
+        <tr>
+          <th>Date</th>
+          <th>Weight</th>
+          <th>Chest</th>
+          <th>Thigh</th>
+          <th>Upper Arm</th>
+          <th>Waist</th>
+          <th>Hips</th>
+          <th>Comment</th>
+        </tr>
+        </thead>
+        <tbody>
+        #{list items:assessmentList, as:'assessment'}
+        <tr>
+          <td>${assessment.date}</td>
+          <td>${assessment.weight} </td>
+          <td>${assessment.chest}</td>
+          <td>${assessment.thigh}</td>
+          <td>${assessment.upperArm}</td>
+          <td>${assessment.waist}</td>
+          <td>${assessment.hips}</td>
+          <td>${assessment.comment}</td>
+          <td> <a href="/dashboard/${member.id}/deleteAssessment/${assessment.id}">
+            <button class="icon button">
+              <i class="trash alternate icon"></i>
+            </button>
+          </a>
+          </td>
+          #{/list}
+        </tr>
+        </tbody>
+      </table>
+    </section>
+  </section>
 </section>
