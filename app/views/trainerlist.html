@@ -1,0 +1,91 @@
+#{extends 'main.html' /}
+#{set title:'trainerdashboard' /}
+#{trainermenu id:"dashboard"/}
+<section class="ui segment">
+    <section class="center aligned ui segment">
+        <div class="ui four column padded relaxed stackable grid">
+            <div class="column">
+                <div class="ui centered icon">
+                    <i class="fas fa-user-alt fa-4x"></i>
+                </div>
+                <p>
+                    <font size="4">${member.name}</font>
+                </p>
+            </div>
+
+            <div class="column">
+                <div class="ui centered icon">
+                    <i class=ui icon></i>
+                    <i class="fas fa-tachometer-alt fa-4x"style="color:red"></i>
+                </div>
+                <p>
+                    <font size="4">Ideal weight indicator</font>
+                </p>
+            </div>
+            <div class="column">
+                <div class="ui header">
+                    <div class=" iu right aligned icon">
+                        <i class="fas fa-heartbeat fa-2x"></i>
+                    </div>
+                    <div class="content"><br>
+                        <font size="7">${bmi}</font>
+                        <p>
+                            <font size="3">BMI</font>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class=" iu centered icon">
+                    <i class="fas fa-user-md fa-4x"></i>
+                </div>
+                <p>
+                    <font size="4">${bmiCat}</font>
+                </p>
+            </div>
+        </div>
+    </section>
+    <section>
+        <header class="ui header">
+            Assessments
+        </header>
+        #{list items:assessmentList, as:'assessment'}
+        <table class=" ui single line celled table">
+            <thead>
+            <tr>
+                <th>Date</th>
+                <th>Weight</th>
+                <th>Chest</th>
+                <th>Thigh</th>
+                <th>Upper Arm</th>
+                <th>Waist</th>
+                <th>Hips</th>
+                <th>Comment</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>${assessment.date} </td>
+                <td>${assessment.weight} </td>
+                <td>${assessment.chest}</td>
+                <td>${assessment.thigh}</td>
+                <td>${assessment.upperArm}</td>
+                <td>${assessment.waist}</td>
+                <td>${assessment.hips}</td>
+                <td>${assessment.comment}</td>
+            </tr>
+            </tbody>
+        </table>
+        <br>
+        <div>
+            <form class="ui large form" action="/dashboard/${member.id}/addComment/${assessment.id}" method="POST">
+                <div class="field">
+                    <label>Comment</label>
+                    <input placeholder="Comment" type="text" name="comment">
+                </div>
+                <button class="ui blue submit button">Update</button>
+            </form>
+        </div>
+        #{/list}
+    </section>
+</section>
