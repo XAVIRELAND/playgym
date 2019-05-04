@@ -1,8 +1,7 @@
 package models;
 
-import play.Logger;
-import play.db.jpa.Model;
 
+import play.db.jpa.Model;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;

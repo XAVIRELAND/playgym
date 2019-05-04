@@ -3,7 +3,6 @@ package controllers;
 import models.Member;
 import models.Trainer;
 import play.Logger;
-import play.db.jpa.JPABase;
 import play.mvc.Controller;
 
 public class Accounts extends Controller

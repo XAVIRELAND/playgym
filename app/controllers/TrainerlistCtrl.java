@@ -1,15 +1,12 @@
 package controllers;
 
-import controllers.Accounts;
+
 import models.Analytics;
 import models.Assessment;
 import models.Member;
 import models.Trainer;
 import play.Logger;
 import play.mvc.Controller;
-
-import javax.xml.stream.events.Comment;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
