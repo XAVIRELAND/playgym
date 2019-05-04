@@ -1,0 +1,102 @@
+Assessment(a1):
+  weight: 123.3
+  chest: 45.5
+  thigh: 12.5
+  upperArm: 23.3
+  waist: 32.0
+  hips: 38.0
+  date: '01/05/19 17:34'
+
+
+Assessment(a2):
+  weight: 82.36
+  chest: 85.5
+  thigh: 21.8
+  upperArm: 15.6
+  waist: 33.0
+  hips: 80.2
+  date: '01/05/19 17:34'
+
+
+Assessment(a3):
+  weight: 80.6
+  chest: 85.5
+  thigh: 21.8
+  upperArm: 15.6
+  waist: 33.0
+  hips: 35.2
+  date: '01/05/19 17:34'
+
+Assessment(a4):
+  weight: 80.6
+  chest: 85.5
+  thigh: 21.8
+  upperArm: 15.6
+  waist: 33.0
+  hips: 35.2
+  date: '01/05/19 17:34'
+
+
+Member(m1):
+  name:  Homer Simpson
+  email: homer@simpson.com
+  password: secret
+  address: Galway
+  gender: male
+  height: 182
+  startingWeight: 89
+  assessmentList:
+    - a1
+
+
+
+Member(m2):
+  name: Burt Simpson
+  email: burt@simpson.com
+  password: secret
+  address: Galway
+  gender: male
+  height: 177
+  startingWeight: 87
+  assessmentList:
+    - a2
+
+Member(m3):
+  name: Javier Alonso
+  email: javier@alonso.com
+  password: secret
+  address: Galway
+  gender: male
+  height: 172
+  startingWeight: 80
+  assessmentList:
+    - a3
+
+Member(m4):
+  name: Abc Simpson
+  email: abc@simpson.com
+  password: secret
+  address: Galway
+  gender: male
+  height: 172
+  startingWeight: 80
+  assessmentList:
+    - a4
+
+
+Trainer(t1):
+  name: Marge Simpson
+  email: marge@simpson.com
+  password: secret
+  memberList:
+    - m2
+    - m3
+
+Trainer(t2):
+  name: Laura Simpson
+  email: laura@simpson.com
+  password: secret
+  memberList:
+    - m1
+    - m4
+
