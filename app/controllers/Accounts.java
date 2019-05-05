@@ -22,7 +22,7 @@ public class Accounts extends Controller
     {
         Member member = getLoggedInMember();
         System.out.println(member.name);
-        render("Account Settings.html", member);
+        render("accountsettings.html", member);
     }
 
     public static void authenticate(String email, String password)
