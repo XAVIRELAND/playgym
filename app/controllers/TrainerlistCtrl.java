@@ -17,9 +17,28 @@ public class TrainerlistCtrl extends Controller {
         List<Assessment> assessmentList = member.assessmentList;
         Collections.reverse(assessmentList);
         Analytics analytics = new Analytics();
-        double bmi = analytics.calculateBmi(member, assessmentList.get(0));
+        double bmi;
+        boolean isIdealBodyWeight;
+
+        if (assessmentList.size() == 0) {
+            bmi = analytics.calculateBmi(member, null);
+            isIdealBodyWeight = analytics.isIdealBodyWeight(member, null);
+        } else {
+            bmi = analytics.calculateBmi(member, assessmentList.get(0));
+            isIdealBodyWeight = analytics.isIdealBodyWeight(member, assessmentList.get(0));
+        }
+
         String bmiCat = analytics.calculateBmiCat(bmi);
-        render("trainerlist.html", member, assessmentList, bmi, bmiCat);
+
+        String colour = "";
+        if (!isIdealBodyWeight) {
+            colour = "color:red";
+        } else {
+            colour = "color:green";
+        }
+
+        render("dashboard.html", member, assessmentList,bmi, bmiCat,colour);
+
     }
 
     public static void addComment(Long id, Long assessmentid, String comment){
