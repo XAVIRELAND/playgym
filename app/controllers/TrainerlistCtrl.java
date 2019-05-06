@@ -37,7 +37,7 @@ public class TrainerlistCtrl extends Controller {
             colour = "color:green";
         }
 
-        render("dashboard.html", member, assessmentList,bmi, bmiCat,colour);
+        render("trainerlist.html", member, assessmentList,bmi, bmiCat,colour);
 
     }
 
